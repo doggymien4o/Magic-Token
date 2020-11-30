@@ -30,10 +30,18 @@ jobs:
 
       - name: Download XSD schema
         run: |
+          ::group::Download 'carddb-v3.xsd'
           wget https://raw.githubusercontent.com/Cockatrice/Cockatrice/master/doc/carddatabase_v3/cards.xsd -O carddb-v3.xsd
+          ::endgroup::
+          ::group::Download 'carddb-v4.xsd'
           wget https://raw.githubusercontent.com/Cockatrice/Cockatrice/master/doc/carddatabase_v4/cards.xsd -O carddb-v4.xsd
+          ::endgroup::
 
       - name: Validate XML files
         run: |
+          ::group::Validate 'challenge_tokens.xml'
           xmllint --schema carddb-v3.xsd --noout challenge_tokens.xml
+          ::endgroup::
+          ::group::Validate tokens.xml'
           xmllint --schema carddb-v4.xsd --noout tokens.xml
+          ::endgroup::
