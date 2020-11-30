@@ -32,9 +32,9 @@ jobs:
           sudo apt-get install libxml2-utils
 
       - name: Download XSD schema
-        run: |
-          wget https://raw.githubusercontent.com/Cockatrice/Cockatrice/master/doc/carddatabase_v3/cards.xsd -O carddb-v3.xsd
-          wget https://raw.githubusercontent.com/Cockatrice/Cockatrice/master/doc/carddatabase_v4/cards.xsd -O carddb-v4.xsd
+        run:
+          - wget https://raw.githubusercontent.com/Cockatrice/Cockatrice/master/doc/carddatabase_v3/cards.xsd -O carddb-v3.xsd
+          - wget https://raw.githubusercontent.com/Cockatrice/Cockatrice/master/doc/carddatabase_v4/cards.xsd -O carddb-v4.xsd
 
       - name: Validate XML files
         run: |
